@@ -38,7 +38,7 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
 
     for(int i=0; i<numsSize; i++)
         for(int j=i+1; j<numsSize; j++)
-            if(nums[j] == target - nums[i])
+            if(nums[j]+ nums[i] == target )
             {
                 printf("i = %d, j = %d\n", i, j);
                 element[0] = i;
