@@ -1,29 +1,27 @@
 class Solution {
 public:
     int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
-        int i,j;
-        int clock=0;
-        int anti=0;
-        int total=0;
-        int n=distance.size();
-        for(i=0;i<n;i++){
+        int total = 0;
+         int i;
+         int n=distance.size();
+         for(i=0;i<n;i++){
              total=total+distance[i];
-        }
-        for(i=start;i<destination;i++){
-            clock=clock+distance[i];
-        }
-          if(start > destination){
+         }
+        int ans = 0;
+        if(start > destination){
             int tmp = start;
             start = destination;
             destination = tmp;
         }
-        anti=total-clock;
-        if(clock>anti){
-            return anti;
+        for(int i = start; i < destination; i++){
+            ans += distance[i];
+        }
+        int anti=total-ans;
+        if(anti>ans){
+            return ans;
         }
         else{
-            return clock;
+            return anti;
         }
-        
     }
 };
