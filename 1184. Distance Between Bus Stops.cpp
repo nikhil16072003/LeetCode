@@ -12,6 +12,11 @@ public:
         for(i=start;i<destination;i++){
             clock=clock+distance[i];
         }
+          if(start > destination){
+            int tmp = start;
+            start = destination;
+            destination = tmp;
+        }
         anti=total-clock;
         if(clock>anti){
             return anti;
