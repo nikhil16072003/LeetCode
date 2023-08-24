@@ -21,7 +21,7 @@ public:
 
 
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\solution 2///////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\solution 2----when they say to take 0 also as positive and without repetitions///////////////////////////////////////////////
 class Solution {
 public:
     int maximumCount(vector<int>& nums) {
