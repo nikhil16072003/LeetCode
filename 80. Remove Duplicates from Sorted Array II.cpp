@@ -1,17 +1,16 @@
 class Solution {
-    public int removeDuplicates(int[] nums) {
-     if(nums.length<3) return nums.length;
-     int index=2;
-     for(int i=2;i<nums.length;i++)
-     {
-         if(nums[i]!=nums[index-2])
-         {
-             nums[index++] = nums[i];
-         }
-     }
-    return index;    
+public:
+    int removeDuplicates(vector<int>& nums) {
+      
+    int i = 0;
+    for (int n : nums)
+        if (i < 2 || n > nums[i-2])
+            nums[i++] = n;
+    return i;
+
+        
     }
-}
+};
 ///////////this code is for to know the length of the array
 class Solution {
 public:
