@@ -12,3 +12,19 @@ public:
         return true;
     }
 };
+///using formula 2b=a+c when abc are in ap
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& arr) 
+    {
+        sort(arr.begin(),arr.end());
+        int i;
+        int n=arr.size();
+        for(i=1;i<n-1;i++){
+            if(2*arr[i]!=arr[i-1]+arr[i+1]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
