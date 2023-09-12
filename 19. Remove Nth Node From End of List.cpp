@@ -24,14 +24,15 @@ public:
         if(n>=count){
             return head->next;
         }
-        int target=count-n-1;
+        
         temp=head;
-        while(target>0){
-            temp=temp->next;
-            target--;
-        }
-        temp->next=temp->next->next;
+       int i;
+      for(i=0;i<count-n-1;i++){
+          temp=temp->next;
+      }
+      temp->next=temp->next->next;
         return head;
         
     }
 };
+
