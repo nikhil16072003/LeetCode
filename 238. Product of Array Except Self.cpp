@@ -1,39 +1,40 @@
 class Solution {
 public:
-    vector<int> productExceptSelf(vector<int>& a) {
-        int n=a.size();
-        vector<int>vec;
-        long long sum=1;
-        int cnt=0;
-        for(int i=0;i<a.size();i++){
-            if(a[i]==0){
-         cnt++;
-            }
-            else{
-               sum=sum*a[i]; 
-            }
-          
-        }
+    vector<int>leftProduct(vector<int>nums,int n){
+        vector<int>ans;
+        int product=1;
         for(int i=0;i<n;i++){
-            if(cnt>=2){
-                vec.push_back(0);
-            }
-            else if(a[i]==0){
-                vec.push_back(sum);
-            }
-            else{
-                if(cnt==1){
-                    vec.push_back(0);
-                }
-                else{
-                   vec.push_back(sum/a[i]);
-                }
-       
-            }
-           
+            product=product*nums[i];
+            ans.push_back(product);
         }
-        return vec;
-         
-        
+        return ans;
+    }
+    vector<int>rightProduct(vector<int>nums,int n){
+        vector<int>ans;
+        int product=1;
+        for(int i=n-1;i>=0;i--){
+            product=product*nums[i];
+            ans.push_back(product);
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+    vector<int> productExceptSelf(vector<int>& nums) {
+      int n=nums.size();
+      vector<int>left=leftProduct(nums,n);
+      vector<int>right=rightProduct(nums,n);
+      vector<int> result;
+      for(int i=0;i<n;i++){
+          if(i==0){
+              result.push_back(right[1]);
+          }
+          else if(i==n-1){
+              result.push_back(left[i-1]);
+          }
+          else{
+              result.push_back(right[i+1] * left[i-1]);
+          }
+      }
+      return result;
     }
 };
